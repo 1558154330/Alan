@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { formatDate, readingTime } from '../../utils/formatDate';
+import { url } from '../../utils/paths';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -42,15 +43,15 @@ const older = all[index - 1];
 
     <nav class="article-nav" aria-label="文章导航">
       <div>
-        {older && <a href={`/blog/${older.id}`}>← 上一篇：{older.data.title}</a>}
+        {older && <a href={url(`/blog/${older.id}`)}>← 上一篇：{older.data.title}</a>}
       </div>
       <div>
-        {newer && <a href={`/blog/${newer.id}`}>下一篇：{newer.data.title} →</a>}
+        {newer && <a href={url(`/blog/${newer.id}`)}>下一篇：{newer.data.title} →</a>}
       </div>
     </nav>
 
     <p style="margin-top: 2rem; font-size: 0.9rem;">
-      <a href="/blog">← 返回文章列表</a>
+      <a href={url('/blog')}>← 返回文章列表</a>
     </p>
   </article>
 </BaseLayout>

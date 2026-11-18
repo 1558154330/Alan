@@ -1,14 +1,17 @@
 ---
 import { SITE, NAV } from '../consts';
+import { url } from '../utils/paths';
 
 const path = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === '/' ? path === '/' : path.startsWith(href);
+const isActive = (href: string) => {
+  if (href === '/') return path === url('/') || path === url('').replace(/\/$/, '');
+  return path.startsWith(url(href).replace(/\/$/, ''));
+};
 ---
 
 <header class="site-header" id="siteHeader">
   <div class="nav-inner">
-    <a href="/" class="brand" aria-label={`${SITE.name} - 返回首页`}>
+    <a href={url('/')} class="brand" aria-label={`${SITE.name} - 返回首页`}>
       <span class="brand-mark" aria-hidden="true">梁</span>
       <span>{SITE.name}</span>
       <span class="brand-sub">Notebook</span>
@@ -29,7 +32,7 @@ const isActive = (href: string) =>
         {NAV.map((item) => (
           <li>
             <a
-              href={item.href}
+              href={url(item.href)}
               aria-current={isActive(item.href) ? 'page' : undefined}
             >{item.label}</a>
           </li>

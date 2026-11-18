@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
 
-// 部署到自己的域名时，把 site 改成真实地址（用于 canonical / RSS 等）
+// GitHub Pages 项目站点：仓库名为 Alan，访问地址 https://1558154330.github.io/Alan/
+// site 用于 canonical 链接，base 让所有资源带上 /Alan 前缀
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://1558154330.github.io',
+  base: '/Alan',
   output: 'static',
 });

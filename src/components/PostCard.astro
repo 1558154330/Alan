@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { formatDate, readingTime } from '../utils/formatDate';
+import { url } from '../utils/paths';
 
 type Props = { post: CollectionEntry<'blog'> };
 const { post } = Astro.props;
@@ -9,7 +10,7 @@ const { title, description, pubDate, category } = post.data;
 
 <article class="post-card">
   <span class="cat">{category}</span>
-  <h3><a href={`/blog/${post.id}`}>{title}</a></h3>
+  <h3><a href={url(`/blog/${post.id}`)}>{title}</a></h3>
   <p class="post-desc">{description}</p>
   <div class="post-meta">
     <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>

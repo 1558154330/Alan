@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../consts';
+import { url } from '../utils/paths';
 const year = new Date().getFullYear();
 ---
 
@@ -8,7 +9,7 @@ const year = new Date().getFullYear();
     <div class="footer-brand">{SITE.name} · {SITE.role}</div>
     <div>
       © {year} {SITE.name}. 用文字记录行业与生活。
-      <a href="/about">关于我</a>
+      <a href={url('/about')}>关于我</a>
     </div>
   </div>
 </footer>
