@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { SITE } from '../consts';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title={SITE.name} description={SITE.description}>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Product Manager · Silicone Industry</p>
+      <h1>梁永昌<br /><span class="accent">写在硅胶与</span><br />产品之间</h1>
+      <p class="hero-tagline">{SITE.tagline}</p>
+      <div class="hero-meta">
+        <span>{SITE.role}</span>
+        <span>{SITE.location}</span>
+        <span>十余年行业实践</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-top: 4rem;">
+    <p class="eyebrow">About</p>
+    <h2 class="section-title">一点自我介绍</h2>
+    <p class="lead dropcap" style="margin-top: 1.8rem; max-width: 62ch;">
+      我是一名在产品与工厂之间来回奔走了十几年的产品经理，长期扎根硅胶制品行业，
+      从一根硅胶管的配方到一条产线的良率，都愿意钻进去弄个明白。
+      我相信好的产品不是画在图纸上，而是被用户真正用起来的样子。
+    </p>
+    <p style="max-width: 62ch;">
+      这里记录我的产品思考、行业观察，以及那些在会议室与车间之间得到的经验教训。
+    </p>
+    <p style="margin-top: 1.5rem;">
+      <a class="btn" href="/about">更多关于我 →</a>
+    </p>
+  </section>
+
+  <hr class="rule container" />
+
+  <section class="container">
+    <p class="eyebrow">Journal</p>
+    <h2 class="section-title">最近的文章</h2>
+    <div class="post-grid">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+    <p style="margin-top: 2.5rem;">
+      <a class="btn btn-solid" href="/blog">阅读全部文章 →</a>
+    </p>
+  </section>
+</BaseLayout>

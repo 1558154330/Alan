@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate, readingTime } from '../../utils/formatDate';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="文章" description="梁永昌的文章：产品思考、行业观察与经验记录。">
+  <div class="container" style="padding-top: 4rem;">
+    <p class="eyebrow">Journal</p>
+    <h1 class="section-title">文章</h1>
+    <p class="lead" style="margin-top: 1.5rem;">共 {posts.length} 篇 · 关于产品、行业与日常</p>
+
+    <div class="post-list">
+      {posts.map((post) => (
+        <article class="post-row">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {formatDate(post.data.pubDate)}
+          </time>
+          <div>
+            <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+            <div class="tags">
+              <span class="cat">{post.data.category}</span>
+              {post.data.tags.map((tag) => <span>{tag}</span>)}
+              <span>约 {readingTime(post.body)} 分钟</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

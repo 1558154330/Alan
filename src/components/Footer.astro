@@ -1,0 +1,14 @@
+---
+import { SITE } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">{SITE.name} · {SITE.role}</div>
+    <div>
+      © {year} {SITE.name}. 用文字记录行业与生活。
+      <a href="/about">关于我</a>
+    </div>
+  </div>
+</footer>
