@@ -11,22 +11,22 @@ const posts = (await getCollection('blog'))
 
 const products = [
   {
-    icon: '婴',
+    img: 'baby.jpg',
     title: '母婴硅胶用品',
     desc: '硅胶餐盘、牙胶、围兜、奶嘴，食品级原料与铂金硫化工艺，守护每一口安心。',
   },
   {
-    icon: '厨',
+    img: 'kitchen.jpg',
     title: '厨房烘焙硅胶',
     desc: '硅胶模具、烘焙垫、铲勺炊具，耐高低温、易脱模、无异味，好用到天天想用。',
   },
   {
-    icon: '密',
+    img: 'industrial.jpg',
     title: '工业密封件',
     desc: 'O 型圈、密封垫片、缓冲减震件，按工况选材选硬度，量产批次稳定如一。',
   },
   {
-    icon: '制',
+    img: 'custom.jpg',
     title: '硅胶定制开发',
     desc: '从图纸到货架：3D 打样、开模试产、批量制造，一站式对接您的产品创意。',
   },
@@ -75,7 +75,14 @@ const stats = [
     <div class="product-grid">
       {products.map((p) => (
         <article class="product-card">
-          <span class="p-icon" aria-hidden="true">{p.icon}</span>
+          <img
+            class="p-img"
+            src={url(`/images/${p.img}`)}
+            alt={`${p.title}产品图`}
+            width="900"
+            height="900"
+            loading="lazy"
+          />
           <h3>{p.title}</h3>
           <p>{p.desc}</p>
         </article>

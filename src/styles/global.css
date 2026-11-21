@@ -741,17 +741,13 @@ p {
   box-shadow: 0 12px 30px rgba(70, 52, 40, 0.1);
   border-color: var(--accent);
 }
-.product-card .p-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  background: var(--accent);
-  color: #fff;
+.product-card .p-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: 3px;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 400;
+  border: 1px solid var(--rule);
+  margin-bottom: 0.3rem;
 }
 .product-card h3 {
   font-size: 1.3rem;

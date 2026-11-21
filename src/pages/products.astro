@@ -4,25 +4,25 @@ import { url } from '../utils/paths';
 
 const products = [
   {
-    icon: '婴',
+    img: 'baby.jpg',
     title: '母婴硅胶用品',
     desc: '一体成型硅胶餐盘、分格吸盘碗、牙胶磨牙棒、围兜与奶嘴配件。食品级硅胶原料，铂金硫化工艺，无异味、不掉粉，通过跌落与耐高低温测试。',
     items: ['硅胶餐盘 / 分格碗', '牙胶 / 磨牙棒', '围兜 / 奶嘴配件', '吸盘防滑底设计'],
   },
   {
-    icon: '厨',
+    img: 'kitchen.jpg',
     title: '厨房烘焙硅胶',
     desc: '蛋糕模具、马芬杯、烘焙垫、铲勺炊具与保鲜盖。耐温 -40℃ ~ 230℃，易脱模、易清洗，颜色与形状均可定制。',
     items: ['蛋糕 / 巧克力模具', '烘焙垫 / 揉面垫', '硅胶铲勺炊具', '可定制形状与配色'],
   },
   {
-    icon: '密',
+    img: 'industrial.jpg',
     title: '工业密封件',
     desc: 'O 型圈、平垫、密封条、缓冲减震件。按介质、温度与压力工况选用普通硅胶、氟硅胶或铂金硫化料，硬度 20~80 Shore A 可选。',
     items: ['O 型圈 / 平垫', '密封条 / 异型条', '缓冲减震件', '硬度 20-80A 可选'],
   },
   {
-    icon: '制',
+    img: 'custom.jpg',
     title: '硅胶定制开发',
     desc: '您出图纸或想法，我们出产品。3D 建模打样确认手感与结构，开模试产验证良率，再进入批量制造，全程一对一项目跟进。',
     items: ['3D 建模 / 快速打样', '开模 / 试产验证', '批量制造交付', '一对一项目管理'],
@@ -49,7 +49,14 @@ const steps = [
     <div class="product-grid" style="margin-top: 3rem;">
       {products.map((p) => (
         <article class="product-card">
-          <span class="p-icon" aria-hidden="true">{p.icon}</span>
+          <img
+            class="p-img"
+            src={url(`/images/${p.img}`)}
+            alt={`${p.title}产品图`}
+            width="900"
+            height="900"
+            loading="lazy"
+          />
           <h3>{p.title}</h3>
           <p>{p.desc}</p>
           <ul class="p-items">
