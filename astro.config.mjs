@@ -1,9 +1,12 @@
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages 项目站点：仓库名为 Alan，访问地址 https://1558154330.github.io/Alan/
-// site 用于 canonical 链接，base 让所有资源带上 /Alan 前缀
+// 双平台部署适配：
+// - Cloudflare Pages 构建时自动注入 CF_PAGES=1，部署在域名根路径 → base 为 '/'
+// - GitHub Pages（仓库名 Alan）访问地址 https://1558154330.github.io/Alan/ → base 为 '/Alan'
+const isCloudflare = process.env.CF_PAGES === '1';
+
 export default defineConfig({
-  site: 'https://1558154330.github.io',
-  base: '/Alan',
+  site: isCloudflare ? 'https://www.zybcl.com' : 'https://1558154330.github.io',
+  base: isCloudflare ? undefined : '/Alan',
   output: 'static',
 });

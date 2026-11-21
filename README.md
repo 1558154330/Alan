@@ -2,8 +2,15 @@
 
 硅胶制品公司官网，基于 Astro v5 的静态站点，参考「零代码搭个人主页」教程架构搭建。
 
-- 线上地址（GitHub Pages）：https://1558154330.github.io/Alan/
-- 推送到 `main` 分支后自动通过 GitHub Actions 构建部署
+- 线上地址（Cloudflare Pages）：https://www.zybcl.com
+- 线上地址（GitHub Pages 备用）：https://1558154330.github.io/Alan/
+- 推送到 `main` 分支后：Cloudflare Pages 与 GitHub Actions 均自动构建部署
+
+## 双平台部署说明
+
+`astro.config.mjs` 通过环境变量自动适配：
+- Cloudflare Pages 构建时自带 `CF_PAGES=1` → base 为 `/`（根路径）
+- GitHub Actions 构建 → base 为 `/Alan`
 
 ## 页面结构
 
