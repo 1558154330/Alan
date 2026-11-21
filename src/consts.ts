@@ -1,17 +1,18 @@
-/** 全站可调的基础信息，改这里即可替换姓名与简介 */
+/** 全站可调的基础信息，改这里即可替换公司名称与简介 */
 export const SITE = {
-  name: '梁永昌',
-  englishName: 'Liang Yongchang',
-  tagline: '我是一名产品经理，在硅胶行业摸爬滚打十几年。',
-  role: '产品经理 · 硅胶制品行业',
+  name: '永昌硅胶',
+  englishName: 'Yongchang Silicone',
+  tagline: '专注硅胶制品研发与制造，把柔软的材料做进生活的每个角落。',
+  role: '硅胶制品研发 · 生产 · 定制',
   location: '中国 · 深圳',
-  email: 'hello@example.com',
+  email: 'hello@yongchang.cn',
   description:
-    '梁永昌的个人主页。记录十几年硅胶行业里的产品思考、用户洞察与量产经验。',
+    '永昌硅胶官网：母婴硅胶用品、厨房烘焙器具、工业密封件与硅胶制品定制开发，从打样到量产一站式交付。',
 } as const;
 
 export const NAV = [
   { label: '首页', href: '/' },
-  { label: '关于', href: '/about' },
-  { label: '文章', href: '/blog' },
+  { label: '产品中心', href: '/products' },
+  { label: '资讯', href: '/blog' },
+  { label: '关于我们', href: '/about' },
 ] as const;

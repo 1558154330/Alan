@@ -3,20 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../consts';
 ---
 
-<BaseLayout title="关于我" description={`关于 ${SITE.name}：${SITE.tagline}`}>
+<BaseLayout title="关于我们" description={`关于 ${SITE.name}：${SITE.tagline}`}>
   <div class="container" style="padding-top: 4rem;">
-    <p class="eyebrow">About Me</p>
-    <h1 class="section-title">关于我</h1>
+    <p class="eyebrow">About Us</p>
+    <h1 class="section-title">关于永昌硅胶</h1>
 
     <div class="about-layout" style="margin-top: 3rem;">
       <aside>
-        <div class="about-portrait" role="img" aria-label={`${SITE.name} 的肖像占位图`}>
-          <span class="monogram" aria-hidden="true">梁</span>
+        <div class="about-portrait" role="img" aria-label="永昌硅胶标识图">
+          <span class="monogram" aria-hidden="true">昌</span>
         </div>
         <ul class="fact-list">
-          <li><span>姓名</span><span>{SITE.name}</span></li>
-          <li><span>职业</span><span>产品经理</span></li>
-          <li><span>行业</span><span>硅胶制品</span></li>
+          <li><span>名称</span><span>{SITE.name}</span></li>
+          <li><span>定位</span><span>硅胶制品制造</span></li>
+          <li><span>主营</span><span>母婴 · 厨房 · 工业</span></li>
           <li><span>坐标</span><span>{SITE.location}</span></li>
           <li><span>邮箱</span><span>{SITE.email}</span></li>
         </ul>
@@ -24,44 +24,46 @@ import { SITE } from '../consts';
 
       <div>
         <p class="lead dropcap">
-          我是一名产品经理，在硅胶行业摸爬滚打十几年。
-          从最开始对着客户图纸逐条拆解需求，到后来主导从打样、开模到量产的完整节奏，
-          我逐渐学会用工程师的语言谈产品，也学会用用户的语言谈价值。
+          永昌硅胶是一家专注硅胶制品研发与制造的公司。
+          团队在硅胶行业深耕十余年，从一根硅胶管的配方选择，到一条产线的良率管理，
+          都愿意钻进去弄个明白。我们相信，好的硅胶产品不是画在图纸上的，
+          而是被用户真正用起来的样子。
         </p>
         <p>
-          这些年里，我做过消费类硅胶配件、母婴用品，也做过工业密封件。
+          我们的主营覆盖母婴用品、厨房烘焙器具与工业密封件三个品类，
+          同时为品牌客户提供从打样、开模到量产的定制开发服务。
           不同品类背后其实是同一件事：在材料特性、成本约束和真实体验之间，
           找到一个恰到好处的平衡点。硅胶看似柔软，做起来却处处是硬度——
           一个缩水率、一段固化时间，都可能决定一个产品能不能真正落地。
         </p>
         <p>
-          我喜欢把复杂的问题拆开讲清楚，也喜欢把一线经验写下来。
-          写下来，是为了让踩过的坑不只在自己心里；也为了遇见同样在这条路上的人。
+          我们把「可靠」作为最高优先级：原料可追溯、参数有记录、批次能回查。
+          让客户拿到的每一批货，都和打样确认的那一件一样。
         </p>
 
-        <h2 style="margin-top: 3rem; font-size: 1.6rem;">经历片段</h2>
+        <h2 style="margin-top: 3rem; font-size: 1.6rem;">发展历程</h2>
         <ul class="timeline">
           <li>
-            <span class="year">现在是</span>
-            <p>专注硅胶制品的产品规划与定义，连接客户需求与研发、生产团队。</p>
+            <span class="year">现在</span>
+            <p>四大产品线并行，服务国内外品牌客户，定制项目从打样到量产一站式交付。</p>
           </li>
           <li>
-            <span class="year">过去十年</span>
-            <p>在硅胶行业多个细分品类积累从 0 到 1 的产品经验，参与众多量产项目。</p>
+            <span class="year">成长期</span>
+            <p>深耕母婴与厨房品类，建立食品级原料与铂金硫化工艺的稳定供应链。</p>
           </li>
           <li>
             <span class="year">起点</span>
-            <p>从一线需求分析与项目跟进做起，学会尊重每一个细节与流程。</p>
+            <p>从工业密封件起家，在一线需求分析与项目跟进中学会尊重每一个细节与流程。</p>
           </li>
         </ul>
 
-        <h2 style="margin-top: 2.5rem; font-size: 1.6rem;">我关心的事</h2>
+        <h2 style="margin-top: 2.5rem; font-size: 1.6rem;">我们关心的事</h2>
         <p>
-          用户研究、需求取舍、产品化落地、供应链管理，以及那些教科书里不写、
-          却每天都会遇到的真实决策。如果你也在做相关的事，欢迎交流。
+          材料安全、工艺良率、批次一致性与真实使用体验，以及那些教科书里不写、
+          却每天都会遇到的真实决策。如果您有产品想法或定制需求，欢迎随时联系。
         </p>
         <p style="margin-top: 1.5rem;">
-          <a class="btn" href={`mailto:${SITE.email}`}>联系我 →</a>
+          <a class="btn" href={`mailto:${SITE.email}`}>联系我们 →</a>
         </p>
       </div>
     </div>

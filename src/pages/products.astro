@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/paths';
+
+const products = [
+  {
+    icon: '婴',
+    title: '母婴硅胶用品',
+    desc: '一体成型硅胶餐盘、分格吸盘碗、牙胶磨牙棒、围兜与奶嘴配件。食品级硅胶原料，铂金硫化工艺，无异味、不掉粉，通过跌落与耐高低温测试。',
+    items: ['硅胶餐盘 / 分格碗', '牙胶 / 磨牙棒', '围兜 / 奶嘴配件', '吸盘防滑底设计'],
+  },
+  {
+    icon: '厨',
+    title: '厨房烘焙硅胶',
+    desc: '蛋糕模具、马芬杯、烘焙垫、铲勺炊具与保鲜盖。耐温 -40℃ ~ 230℃，易脱模、易清洗，颜色与形状均可定制。',
+    items: ['蛋糕 / 巧克力模具', '烘焙垫 / 揉面垫', '硅胶铲勺炊具', '可定制形状与配色'],
+  },
+  {
+    icon: '密',
+    title: '工业密封件',
+    desc: 'O 型圈、平垫、密封条、缓冲减震件。按介质、温度与压力工况选用普通硅胶、氟硅胶或铂金硫化料，硬度 20~80 Shore A 可选。',
+    items: ['O 型圈 / 平垫', '密封条 / 异型条', '缓冲减震件', '硬度 20-80A 可选'],
+  },
+  {
+    icon: '制',
+    title: '硅胶定制开发',
+    desc: '您出图纸或想法，我们出产品。3D 建模打样确认手感与结构，开模试产验证良率，再进入批量制造，全程一对一项目跟进。',
+    items: ['3D 建模 / 快速打样', '开模 / 试产验证', '批量制造交付', '一对一项目管理'],
+  },
+];
+
+const steps = [
+  { step: '01', title: '需求沟通', desc: '明确产品用途、使用场景与目标成本，评估材料与工艺路线。' },
+  { step: '02', title: '打样确认', desc: '3D 建模出样，确认外观、手感与结构细节，必要时多轮迭代。' },
+  { step: '03', title: '开模试产', desc: '模具设计与试产验证缩水率、固化时间与良率，锁定量产参数。' },
+  { step: '04', title: '量产交付', desc: '批量生产、全检出货，包装方案与出货节奏按您的计划对齐。' },
+];
+---
+
+<BaseLayout title="产品中心" description="永昌硅胶产品中心：母婴硅胶用品、厨房烘焙硅胶、工业密封件与硅胶定制开发服务。">
+  <div class="container" style="padding-top: 4rem;">
+    <p class="eyebrow">Products</p>
+    <h1 class="section-title">产品中心</h1>
+    <p class="lead" style="margin-top: 1.8rem; max-width: 62ch;">
+      四条产品线，同一套标准：食品级原料、稳定的工艺参数、可追溯的批次管理。
+      无论是一件现成产品，还是一个只存在于图纸上的想法，都可以从这里开始。
+    </p>
+
+    <div class="product-grid" style="margin-top: 3rem;">
+      {products.map((p) => (
+        <article class="product-card">
+          <span class="p-icon" aria-hidden="true">{p.icon}</span>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+          <ul class="p-items">
+            {p.items.map((it) => <li>{it}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <hr class="rule container" />
+
+  <section class="container">
+    <p class="eyebrow">Process</p>
+    <h2 class="section-title">定制流程</h2>
+    <div class="process-grid">
+      {steps.map((s) => (
+        <div class="process-card">
+          <span class="p-step" aria-hidden="true">{s.step}</span>
+          <h3>{s.title}</h3>
+          <p>{s.desc}</p>
+        </div>
+      ))}
+    </div>
+    <p style="margin-top: 2.5rem;">
+      <a class="btn btn-solid" href={`mailto:hello@yongchang.cn`}>发起一次定制咨询 →</a>
+    </p>
+  </section>
+</BaseLayout>

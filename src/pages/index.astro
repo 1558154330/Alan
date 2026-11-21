@@ -8,35 +8,81 @@ import { url } from '../utils/paths';
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const products = [
+  {
+    icon: '婴',
+    title: '母婴硅胶用品',
+    desc: '硅胶餐盘、牙胶、围兜、奶嘴，食品级原料与铂金硫化工艺，守护每一口安心。',
+  },
+  {
+    icon: '厨',
+    title: '厨房烘焙硅胶',
+    desc: '硅胶模具、烘焙垫、铲勺炊具，耐高低温、易脱模、无异味，好用到天天想用。',
+  },
+  {
+    icon: '密',
+    title: '工业密封件',
+    desc: 'O 型圈、密封垫片、缓冲减震件，按工况选材选硬度，量产批次稳定如一。',
+  },
+  {
+    icon: '制',
+    title: '硅胶定制开发',
+    desc: '从图纸到货架：3D 打样、开模试产、批量制造，一站式对接您的产品创意。',
+  },
+];
+
+const stats = [
+  { num: '10+', label: '年行业经验' },
+  { num: '4', label: '大产品线' },
+  { num: '500+', label: '量产项目' },
+  { num: '1', label: '站式交付' },
+];
 ---
 
 <BaseLayout title={SITE.name} description={SITE.description}>
   <section class="hero">
     <div class="container">
-      <p class="eyebrow">Product Manager · Silicone Industry</p>
-      <h1>梁永昌<br /><span class="accent">写在硅胶与</span><br />产品之间</h1>
+      <p class="eyebrow">Yongchang Silicone</p>
+      <h1>柔软的材料<br /><span class="accent">可靠的产品</span></h1>
       <p class="hero-tagline">{SITE.tagline}</p>
       <div class="hero-meta">
         <span>{SITE.role}</span>
         <span>{SITE.location}</span>
-        <span>十余年行业实践</span>
+        <span>食品级原料 · 铂金硫化</span>
+      </div>
+      <div class="hero-actions" style="margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+        <a class="btn btn-solid" href={url('/products')}>浏览产品中心 →</a>
+        <a class="btn" href={url('/about')}>了解永昌</a>
       </div>
     </div>
   </section>
 
+  <section class="container" style="padding-top: 3.5rem;">
+    <div class="stats-row">
+      {stats.map((s) => (
+        <div class="stat">
+          <b>{s.num}</b>
+          <span>{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <section class="container" style="padding-top: 4rem;">
-    <p class="eyebrow">About</p>
-    <h2 class="section-title">一点自我介绍</h2>
-    <p class="lead dropcap" style="margin-top: 1.8rem; max-width: 62ch;">
-      我是一名在产品与工厂之间来回奔走了十几年的产品经理，长期扎根硅胶制品行业，
-      从一根硅胶管的配方到一条产线的良率，都愿意钻进去弄个明白。
-      我相信好的产品不是画在图纸上，而是被用户真正用起来的样子。
-    </p>
-    <p style="max-width: 62ch;">
-      这里记录我的产品思考、行业观察，以及那些在会议室与车间之间得到的经验教训。
-    </p>
-    <p style="margin-top: 1.5rem;">
-      <a class="btn" href={url('/about')}>更多关于我 →</a>
+    <p class="eyebrow">Products</p>
+    <h2 class="section-title">我们的产品线</h2>
+    <div class="product-grid">
+      {products.map((p) => (
+        <article class="product-card">
+          <span class="p-icon" aria-hidden="true">{p.icon}</span>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+        </article>
+      ))}
+    </div>
+    <p style="margin-top: 2.5rem;">
+      <a class="btn" href={url('/products')}>查看全部产品 →</a>
     </p>
   </section>
 
@@ -44,12 +90,12 @@ const posts = (await getCollection('blog'))
 
   <section class="container">
     <p class="eyebrow">Journal</p>
-    <h2 class="section-title">最近的文章</h2>
+    <h2 class="section-title">最新资讯</h2>
     <div class="post-grid">
       {posts.map((post) => <PostCard post={post} />)}
     </div>
     <p style="margin-top: 2.5rem;">
-      <a class="btn btn-solid" href={url('/blog')}>阅读全部文章 →</a>
+      <a class="btn btn-solid" href={url('/blog')}>阅读全部资讯 →</a>
     </p>
   </section>
 </BaseLayout>

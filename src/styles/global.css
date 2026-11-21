@@ -715,3 +715,125 @@ p {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   产品卡片（首页产品线 + 产品中心）
+   ============================================================ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.product-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(70, 52, 40, 0.1);
+  border-color: var(--accent);
+}
+.product-card .p-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+.product-card h3 {
+  font-size: 1.3rem;
+  margin: 0.4rem 0 0;
+  line-height: 1.35;
+}
+.product-card p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0;
+  flex: 1;
+}
+.p-items {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0.9rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.p-items li {
+  padding: 0.22rem 0;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.p-items li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* 流程卡片（定制四步） */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+.process-card {
+  border-top: 3px solid var(--accent);
+  background: var(--card);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 1.6rem 1.6rem 1.4rem;
+}
+.process-card .p-step {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+.process-card h3 {
+  font-size: 1.25rem;
+  margin: 0.7rem 0 0.4rem;
+}
+.process-card p {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* 首页数据条 */
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+}
+.stats-row .stat b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.stats-row .stat span {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+}
