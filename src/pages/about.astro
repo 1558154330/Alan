@@ -18,7 +18,9 @@ import { SITE } from '../consts';
           <li><span>定位</span><span>硅胶制品制造</span></li>
           <li><span>主营</span><span>母婴 · 厨房 · 工业</span></li>
           <li><span>坐标</span><span>{SITE.location}</span></li>
-          <li><span>邮箱</span><span>{SITE.email}</span></li>
+          <li><span>电话</span><span><a href={`tel:${SITE.phone}`}>{SITE.phone}</a></span></li>
+          <li><span>微信</span><span>{SITE.phone}</span></li>
+          <li><span>邮箱</span><span><a href={`mailto:${SITE.email}`}>{SITE.email}</a></span></li>
         </ul>
       </aside>
 
@@ -62,8 +64,9 @@ import { SITE } from '../consts';
           材料安全、工艺良率、批次一致性与真实使用体验，以及那些教科书里不写、
           却每天都会遇到的真实决策。如果您有产品想法或定制需求，欢迎随时联系。
         </p>
-        <p style="margin-top: 1.5rem;">
-          <a class="btn" href={`mailto:${SITE.email}`}>联系我们 →</a>
+        <p style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+          <a class="btn btn-solid" href={`tel:${SITE.phone}`}>电话咨询 {SITE.phone}</a>
+          <a class="btn" href={`mailto:${SITE.email}`}>邮件联系 →</a>
         </p>
       </div>
     </div>

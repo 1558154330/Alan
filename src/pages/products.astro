@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
 import { url } from '../utils/paths';
 
 const products = [
@@ -81,8 +82,12 @@ const steps = [
         </div>
       ))}
     </div>
-    <p style="margin-top: 2.5rem;">
-      <a class="btn btn-solid" href={`mailto:hello@yongchang.cn`}>发起一次定制咨询 →</a>
+    <p style="margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+      <a class="btn btn-solid" href={`tel:${SITE.phone}`}>电话 / 微信 {SITE.phone}</a>
+      <a class="btn" href={`mailto:${SITE.email}`}>邮件咨询 →</a>
+    </p>
+    <p style="margin-top: 0.8rem; font-size: 0.88rem; color: var(--ink-soft);">
+      {SITE.phoneNote}：{SITE.phone} · 邮箱：{SITE.email}
     </p>
   </section>
 </BaseLayout>

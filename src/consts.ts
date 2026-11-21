@@ -5,7 +5,9 @@ export const SITE = {
   tagline: '专注硅胶制品研发与制造，把柔软的材料做进生活的每个角落。',
   role: '硅胶制品研发 · 生产 · 定制',
   location: '中国 · 深圳',
-  email: 'hello@yongchang.cn',
+  email: '1558154330@qq.com',
+  phone: '15917697062',
+  phoneNote: '电话 / 微信同号',
   description:
     '永昌硅胶官网：母婴硅胶用品、厨房烘焙器具、工业密封件与硅胶制品定制开发，从打样到量产一站式交付。',
 } as const;
